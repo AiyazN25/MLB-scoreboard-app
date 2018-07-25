@@ -1,0 +1,18 @@
+<div>
+    <% let i = 0; %>
+    <% let divGroup = 1; %>
+    <% while(i < inningsArray.length){ %>
+        <div class="innings-div" data-divGroupNum="<%-divGroup%>">
+            <% let inningNum = 1; %>
+            <% while(inningNum < 10 && i < inningsArray.length){ %>
+                <% let inning = inningsArray[i]; %>
+                <span>
+                    <%- inning[type]; %>
+                </span>
+                <% inningNum += 1; %>
+                <% i += 1; %>
+            <% } %>
+        </div>
+        <% divGroup += 1; %>
+    <% } %>
+</div>

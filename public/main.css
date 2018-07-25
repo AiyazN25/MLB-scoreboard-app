@@ -1,0 +1,58 @@
+h1 {
+    margin: 0;
+    text-align: center;
+}
+
+.instruction {
+    text-align: center;
+}
+
+.square {
+    display: grid;
+    grid-template-columns: [first] 70% [second] 30% [third];
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#date-input {
+    margin-top: 5%;
+    margin-bottom: 5%;
+    width: 20%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#date-submit {
+    text-align: center;
+    width: 50%;
+    height: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#date-visible{
+    text-align: center;
+}
+
+.list-element {
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border: 1px solid black;
+}
+
+.team-name {
+    grid-column-start: first;
+    grid-column-end: second;
+}
+
+.team-score {
+    grid-column-start: second;
+    grid-column-end: third;
+}
+
+.winning-team {
+    font-weight: bold;
+}

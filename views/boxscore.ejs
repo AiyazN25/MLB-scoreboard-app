@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Boxscore</title>
+    <link rel="stylesheet" href="/boxscore.css">
+</head>
+<body>
+    <h1 id="boxscore-h1">Game Boxscore</h1>
+    <span id="toggle-inning-btns">
+        <button id="prev">Prev 9 Innings</button>
+        <button id="next">Next 9 Innings</button>
+    </span>
+    <% let inningsArray = boxscore["linescore"]["inning_line_score"]; %>
+    <% let type, batterArray; %>
+
+    <div class="centered-70">
+        <div id="linescore-grid">
+                <span>Team Name</span>
+                <% type = "inning" %>
+                <% include generateInnings %>
+                <span>R</span>
+                <span>H</span>
+                <span>E</span>
+        
+                <!-- Home Team inning by inning -->
+                <span><%- boxscore["home_team_code"].toUpperCase() %></span>
+                <% type = "home" %>
+                <% include generateInnings %>
+                <span><%- boxscore["linescore"]["home_team_runs"] %></span>
+                <span><%- boxscore["linescore"]["home_team_hits"] %></span>
+                <span><%- boxscore["linescore"]["home_team_errors"] %></span>
+        
+                <!-- Away Team inning by inning  -->
+                <span><%- boxscore["away_team_code"].toUpperCase() %></span>
+                <% type = "away" %>
+                <% include generateInnings %>
+                <span><%- boxscore["linescore"]["away_team_runs"] %></span>
+                <span><%- boxscore["linescore"]["away_team_hits"] %></span>
+                <span><%- boxscore["linescore"]["away_team_errors"] %></span>
+        
+            </div>
+    </div>
+
+    
+
+    <div class="centered-50">
+        <div id="team-buttons">
+            <button id="home-team-button" class="clicked"> <%- boxscore["home_sname"] %> </button>
+            <span id= "team-buttons-separator">|</span>
+            <button id="away-team-button"> <%- boxscore["away_fname"] %> </button>
+        </div>
+        
+        <div class="batter-stats-row bolded">
+            <span>Name</span>
+            <span>AB</span>
+            <span>R</span>
+            <span>H</span>
+            <span>RBI</span>
+            <span>BB</span>
+            <span>SO</span>
+            <span>AVG</span>
+        </div>
+
+        <div id="home-batters">
+            <% batterArray = boxscore["batting"][0]["batter"] %>
+            <% include generateBatterStats %>
+        </div>
+
+        <div id="away-batters" class="hidden">
+            <% batterArray = boxscore["batting"][1]["batter"] %>
+            <% include generateBatterStats %>
+        </div>
+        
+        
+    </div>
+    
+    <script src="/boxscore.js"></script>
+</body>
+</html>

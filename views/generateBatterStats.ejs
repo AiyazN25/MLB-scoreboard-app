@@ -1,0 +1,12 @@
+<% batterArray.forEach(function(batter){ %>
+    <div class="batter-stats-row">
+        <span><%- batter["name_display_first_last"] %></span>
+        <span><%- batter["ab"] %></span>
+        <span><%- batter["r"] %></span>
+        <span><%- batter["h"] %></span>
+        <span><%- batter["rbi"] %></span>
+        <span><%- batter["bb"] %></span>
+        <span><%- batter["so"] %></span>
+        <span><%- batter["avg"] %></span>
+    </div>
+<% }) %>

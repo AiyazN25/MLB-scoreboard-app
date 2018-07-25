@@ -1,0 +1,55 @@
+#boxscore-h1{
+    text-align: center;
+}
+
+#linescore-grid{
+    display: grid;
+    grid-template-rows: repeat(3, 50px);
+    grid-template-columns: [first] 17% [second] auto [third] repeat(3, 3.33%);
+}
+
+.centered-50{
+    width: 50%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.centered-70{
+    width: 70%;
+    text-align: center;
+    margin: 0 auto;
+}
+
+.innings-div{
+    display: grid;
+    grid-template-columns: repeat(9, 11.11%);
+}
+
+
+#team-buttons-separator{
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.bolded{
+    font-weight: bold;
+}
+
+.batter-stats-row{
+    display: grid;
+    margin-top: 2%;
+    grid-template-columns: [first] 30% [second] repeat(7, 10%);
+}
+
+.hidden {
+    display: none;
+}
+
+.clicked {
+    background-color: black;
+    color: white;
+}
+
+#toggle-inning-btns{
+    float: right;
+}
