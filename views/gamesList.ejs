@@ -28,9 +28,9 @@
             </span>
         </div>
         <% if(gamesForTheDayArray){ %>
-            <div id="JSONFeed" data-date="<%- dateString %>" data-JSONFeed="<%- JSON.stringify(gamesForTheDayArray).replace(/"/g, "&quot;"); %>"></div>
+            <div id="JSONFeed" data-favTeam="<%- favTeam %>" data-date="<%- dateString %>" data-JSONFeed="<%- JSON.stringify(gamesForTheDayArray).replace(/"/g, "&quot;"); %>"></div>
         <% } else{ %>
-            <div id="JSONFeed" data-date="<%- dateString %>"></div>
+            <div id="JSONFeed" data-favTeam="<%- favTeam %>" data-date="<%- dateString %>"></div>
         <% } %>
     </div>
 

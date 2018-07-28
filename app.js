@@ -10,7 +10,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/games", function(req, res){
-    let url, dateString;
+    let url, dateString, favTeam;
     if(req.query.date){
         dateString = req.query.date;
         let year = dateString.substring(0,4);
@@ -23,10 +23,17 @@ app.get("/games", function(req, res){
         dateString = "2017-07-01";
     }
     
+    req.query.favTeam ? favTeam = req.query.favTeam : favTeam = "TOR";
+    
     request(url, function(error, response, body){
         if(!error && response.statusCode == 200){
 			let parsedData = JSON.parse(body);
-			res.render("gamesList", {gamesForTheDayArray: parsedData["data"]["games"]["game"], dateString: dateString});
+            res.render("gamesList", 
+            {
+                gamesForTheDayArray: parsedData["data"]["games"]["game"], 
+                dateString: dateString,
+                favTeam : favTeam
+            });
 		}
     })
 })

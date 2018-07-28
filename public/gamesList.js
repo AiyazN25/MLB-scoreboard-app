@@ -78,28 +78,33 @@
         }
 
 
-        function changePageAccordingToDate(dateObject){
+        function changePageAccordingToDate(){
             var dateStringForNextDay = convertDate(dateObj);
             window.location.href = "/games?date=" + dateStringForNextDay;
         }
         
-
+        var allMLBTeams =
+        {
+            baltimoreOrioles: "Orioles", bostonRedSox: "Red Sox"
+        }
         // Get the div that stores the JSONfeed and date
         var JSONFeedDiv = document.getElementById("JSONFeed");
+        // Get the favTeam for this view
+        var favTeam = JSONFeedDiv.getAttribute("data-favTeam");
         // Get the date for this view
         var dateString = JSONFeedDiv.getAttribute("data-date");
-        var dateObj = new Date(dateString +"T03:24:00");
+        var dateObj = new Date(dateString +"T03:24:00"); // Arbitrary time just to not be 00:00:00
         var dateVisible = dateObj.toString().substring(0,15);
         // Display the date for the user
         document.getElementById("date-text").appendChild(document.createTextNode(dateVisible));
         // Toggle next/prev with the buttons
         document.getElementById("next").addEventListener("click", function(){
             dateObj.setDate(dateObj.getDate() + 1);
-            changePageAccordingToDate(dateObj);
+            changePageAccordingToDate();
         })
         document.getElementById("prev").addEventListener("click", function(){
             dateObj.setDate(dateObj.getDate() - 1);
-            changePageAccordingToDate(dateObj);
+            changePageAccordingToDate();
         })
         var JSONFeedStr = JSONFeedDiv.getAttribute("data-JSONFeed");
         var gamesForTheDayArray = JSONFeedStr ? JSON.parse(JSONFeedStr) : null;
